@@ -5,10 +5,27 @@ var solve = document.getElementsByClassName("solve")[0];
 var hint = document.getElementsByClassName("hint")[0];
 var score = document.getElementsByClassName("score")[0];
 var letterInput = document.getElementsByClassName("letterInput")[0];
+var solveInput = document.getElementsByClassName("solveInput")[0];
+var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
 var puzzle;
 
 
-guessLetter.addEventListener("click", lettercheck)
+newPuzzle.addEventListener("click", refresh);
+
+function refresh(){
+	location.reload();
+}
+
+
+solve.addEventListener("click", solvePuzzle);
+
+function solvePuzzle(){
+	if (solveInput.value.toUpperCase() === puzzle)
+			document.getElementsByClassName("innerTile").style.display = "block";
+	
+}
+
+guessLetter.addEventListener("click", lettercheck);
 	
 function lettercheck(){
 	console.log(letterInput.value)
@@ -23,8 +40,6 @@ function lettercheck(){
 
 	}
 }
-// solve.addEventListener("click", function(){
-// }
 
 // function HangMan(gameOne){
 // 	this.gameOne = gameOne;
