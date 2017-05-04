@@ -3,7 +3,6 @@ var guessLetter = document.getElementsByClassName("letter")[0];
 var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
 var solve = document.getElementsByClassName("solve")[0];
 var hint = document.getElementsByClassName("hint")[0];
-var score = document.getElementsByClassName("score")[0];
 var letterInput = document.getElementsByClassName("letterInput")[0];
 var solveInput = document.getElementsByClassName("solveInput")[0];
 var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
@@ -20,10 +19,16 @@ function refresh(){
 solve.addEventListener("click", solvePuzzle);
 
 function solvePuzzle(){
-	if (solveInput.value.toUpperCase() === puzzle)
-			document.getElementsByClassName("innerTile").style.display = "block";
-	
-}
+	for (var i = 0; i < puzzle.length; i++) {
+		if (solveInput.value.toUpperCase() === puzzle){
+			document.getElementsByClassName("innerTile")[i].style.display = "block";
+
+		} else {
+			// alert("Try again!")
+		}
+
+	}
+}		
 
 guessLetter.addEventListener("click", lettercheck);
 	
@@ -35,7 +40,7 @@ function lettercheck(){
 			document.getElementsByClassName("innerTile")[i].style.display = "block";
 
 		} else {
-
+			// alert("Try again!")
 		}
 
 	}
