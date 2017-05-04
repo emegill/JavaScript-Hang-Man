@@ -1,28 +1,43 @@
 
-var buyVowel = document.getElementsByClassName("vowel")[0];
+var guessLetter = document.getElementsByClassName("letter")[0];
 var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
-var money = document.getElementsByClassName("money")[0];
 var solve = document.getElementsByClassName("solve")[0];
 var hint = document.getElementsByClassName("hint")[0];
 var score = document.getElementsByClassName("score")[0];
+var letterInput = document.getElementsByClassName("letterInput")[0];
+var puzzle;
 
-vowels = ['A', 'E', 'I', 'O', 'U'];
 
-// buyVowel.addEventListener("click", function(){
-// 	return alert("test");
-// }
-// newButton.addEventListener("click", function(){
-// }
-// money.addEventListener("click", function(){
-// }
+guessLetter.addEventListener("click", lettercheck)
+	
+function lettercheck(){
+	console.log(letterInput.value)
+	for (var i = 0; i < puzzle.length; i++) {
+		console.log(puzzle[i])
+		if (letterInput.value.toUpperCase() === puzzle[i]) {
+			document.getElementsByClassName("innerTile")[i].style.display = "block";
+
+		} else {
+
+		}
+
+	}
+}
 // solve.addEventListener("click", function(){
+// }
+
+// function HangMan(gameOne){
+// 	this.gameOne = gameOne;
+// 	this.guessedLetterArray = [];
+// 	this.lettersInPuzzel = [];
+// 	var obj = this
 // }
 
 function randomPuzzle(){
 
-	var puzzleArray = ["doctor who", "the dark knight rises", "wheel of fortune",
-    "facebook", "twitter", "google plus", "sea world", "pastrami on rye",
-    "i am sparta", "whose line is it anyway", "google chrome"];
+	var puzzleArray = ["DOCTOR WHO", "THE DARK KNIGHT RISES", "WHEEL OF FORTUNE",
+    "FACEBOOK", "TWITTER", "GOOGLE PLUS", "SEA WORLD", "PASTRAMI ON RYE",
+    "I AM SPARTA", "WHOSE LINE IS IT ANYWAY", "GOOGLE CHROME"];
 	
 	puzzle = puzzleArray[Math.floor(Math.random()*puzzleArray.length)];
 
@@ -55,10 +70,15 @@ function placePuzzle(){
 function divLetter(spaceSplit){
 	var puzzleLocation = document.getElementsByClassName("display")[0];
 	for (var i = 0; i < spaceSplit.length; i++) {
-		var divCreator = "<div class='tiles'>"
-		divCreator += spaceSplit[i]
-		divCreator += "</div>"
-		puzzleLocation.innerHTML += divCreator;
+		var divCreator = document.createElement("div");
+		divCreator.classList.add("outterTile");
+
+		var divInnerCreator = document.createElement("div");
+		divInnerCreator.classList.add("innerTile");
+		divInnerCreator.innerHTML += spaceSplit[i];
+
+		puzzleLocation.append(divCreator);
+		divCreator.append(divInnerCreator);
 	}
 	
 }
