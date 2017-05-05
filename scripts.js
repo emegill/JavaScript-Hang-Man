@@ -20,43 +20,42 @@ function refresh(){
 solve.addEventListener("click", solvePuzzle);
 
 function solvePuzzle(){
+	var correctPuzzle = false;
 	for (var i = 0; i < puzzle.length; i++) {
 		if (solveInput.value.toUpperCase() === puzzle){
 			document.getElementsByClassName("innerTile")[i].style.display = "block";
-
-		} else {
-			// alert("Try again!")
+			correctPuzzle = true;
 		}
 
+	}
+	if (correctPuzzle === false) {
+		alert("WRONG! Try again!")
 	}
 }		
 
 guessLetter.addEventListener("click", lettercheck);
 	
 function lettercheck(){
+	var correctAnswer = false;
 	console.log(letterInput.value)
 	for (var i = 0; i < puzzle.length; i++) {
 		console.log(puzzle[i])
 		if (letterInput.value.toUpperCase() === puzzle[i]) {
 			document.getElementsByClassName("innerTile")[i].style.display = "block";
-
-		} else {
-			// alert("Try again!")
+				correctAnswer = true;
 		}
 
 	}
+	if (correctAnswer === false) {
+	 	alert("WRONG! Guess again!");
+	}
 }
 
-// function HangMan(gameOne){
-// 	this.gameOne = gameOne;
-// 	this.guessedLetterArray = [];
-// 	this.lettersInPuzzel = [];
-// 	var obj = this
-// }
+
 
 function randomPuzzle(){
 
-	var clueArray = []
+	var clueArray = ["knock knock", "batman", "this game", "mark made it", "the bird", "+", "free Willy", "jewish deli sandwitch", "300", "improv show", "the only web broswer"];
 
 	var puzzleArray = ["DOCTOR WHO", "THE DARK KNIGHT RISES", "WHEEL OF FORTUNE",
     "FACEBOOK", "TWITTER", "GOOGLE PLUS", "SEA WORLD", "PASTRAMI ON RYE",
@@ -66,12 +65,13 @@ function randomPuzzle(){
     console.log(random);
 	
 	puzzle = puzzleArray[random];
-
 	clue = clueArray[random];
 
-	return puzzle;
-}
+	document.getElementsByClassName("hint")[0].innerHTML = clue;
 
+	return puzzle;
+
+}
 
 function placePuzzle(){
 	var puzzleLocation = document.getElementsByClassName("display")[0];
