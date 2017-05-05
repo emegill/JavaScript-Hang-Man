@@ -12,6 +12,11 @@ var clue;
 
 newPuzzle.addEventListener("click", refresh);
 
+function reset(){
+	document.getElementsByClassName("letterInput")[0].value = "";
+	document.getElementsByClassName("solveInput")[0].value = "";
+}
+
 function refresh(){
 	location.reload();
 }
@@ -31,9 +36,10 @@ function solvePuzzle(){
 	if (correctPuzzle === false) {
 		alert("WRONG! Try again!")
 	}
+	reset();
 }		
 
-guessLetter.addEventListener("click", lettercheck);
+guessLetter.addEventListener("click", lettercheck, reset);
 	
 function lettercheck(){
 	var correctAnswer = false;
@@ -49,6 +55,7 @@ function lettercheck(){
 	if (correctAnswer === false) {
 	 	alert("WRONG! Guess again!");
 	}
+	reset();
 }
 
 
