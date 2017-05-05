@@ -6,6 +6,8 @@ var letterInput = document.getElementsByClassName("letterInput")[0];
 var solveInput = document.getElementsByClassName("solveInput")[0];
 var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
 var score = document.getElementsByClassName("score")[0];
+var playerOne = document.getElementsByClassName("playerOne")[0];
+var playerTwo = document.getElementsByClassName("playerTwo")[0];
 var puzzle;
 var clue;
 var score = 0;
@@ -44,7 +46,7 @@ guessLetter.addEventListener("click", lettercheck, reset);
 	
 function lettercheck(){
 	var correctAnswer = false;
-	console.log(letterInput.value)
+	// console.log(letterInput.value)
 	for (var i = 0; i < puzzle.length; i++) {
 		console.log(puzzle[i])
 		if (letterInput.value.toUpperCase() === puzzle[i]) {
@@ -56,7 +58,7 @@ function lettercheck(){
 
 	}
 	if (correctAnswer === false) {
-	 	alert("WRONG! Guess again!");
+	 	alert("WRONG! -100 Points!");
 	 	wrongAnswer();
 	}
 	reset();
@@ -74,14 +76,14 @@ function wrongAnswer(){
 
 function randomPuzzle(){
 
-	var clueArray = ["knock knock", "batman", "this game", "mark made it", "the bird", "+", "free Willy", "jewish deli sandwitch", "300", "improv show", "the only web broswer"];
+	var clueArray = ["Knock Knock", "Batman", "This game", "Mark made it", "The Bird", "Search engine +", "Free Willy", "Jewish deli sandwitch", "300", "Improv show", "The only web browser"];
 
 	var puzzleArray = ["DOCTOR WHO", "THE DARK KNIGHT RISES", "WHEEL OF FORTUNE",
     "FACEBOOK", "TWITTER", "GOOGLE PLUS", "SEA WORLD", "PASTRAMI ON RYE",
     "I AM SPARTA", "WHOSE LINE IS IT ANYWAY", "GOOGLE CHROME"];
 
     var random = Math.floor(Math.random()*puzzleArray.length);
-    console.log(random);
+    // console.log(random);
 	
 	puzzle = puzzleArray[random];
 	clue = clueArray[random];

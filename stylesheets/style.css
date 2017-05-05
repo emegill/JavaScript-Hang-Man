@@ -4,7 +4,7 @@
   border: 2px solid black;
   float: left;
   text-align: center;
-  background-color: green;
+  background-color: teal;
   color: white;
   font-size: 24px; }
 
@@ -14,7 +14,7 @@
   border: 2px solid black;
   float: left;
   text-align: center;
-  background-color: green;
+  background-color: salmon;
   color: white;
   font-size: 24px;
   display: none; }
