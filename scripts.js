@@ -1,4 +1,3 @@
-
 var guessLetter = document.getElementsByClassName("letter")[0];
 var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
 var solve = document.getElementsByClassName("solve")[0];
@@ -6,16 +5,18 @@ var hint = document.getElementsByClassName("hint")[0];
 var letterInput = document.getElementsByClassName("letterInput")[0];
 var solveInput = document.getElementsByClassName("solveInput")[0];
 var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
+var score = document.getElementsByClassName("score")[0];
 var puzzle;
 var clue;
+var score = 0;
 
-
-newPuzzle.addEventListener("click", refresh);
 
 function reset(){
 	document.getElementsByClassName("letterInput")[0].value = "";
 	document.getElementsByClassName("solveInput")[0].value = "";
 }
+
+newPuzzle.addEventListener("click", refresh);
 
 function refresh(){
 	location.reload();
@@ -49,16 +50,27 @@ function lettercheck(){
 		if (letterInput.value.toUpperCase() === puzzle[i]) {
 			document.getElementsByClassName("innerTile")[i].style.display = "block";
 				correctAnswer = true;
+				totalScore();
+
 		}
 
 	}
 	if (correctAnswer === false) {
 	 	alert("WRONG! Guess again!");
+	 	wrongAnswer();
 	}
 	reset();
 }
 
+function totalScore(){
+	score += 100;
+	document.getElementsByClassName("score")[0].innerHTML = score;
+}
 
+function wrongAnswer(){
+	score -= 100;
+	document.getElementsByClassName("score")[0].innerHTML = score;
+}
 
 function randomPuzzle(){
 
