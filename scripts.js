@@ -7,6 +7,7 @@ var letterInput = document.getElementsByClassName("letterInput")[0];
 var solveInput = document.getElementsByClassName("solveInput")[0];
 var newPuzzle = document.getElementsByClassName("newPuzzle")[0];
 var puzzle;
+var clue;
 
 
 newPuzzle.addEventListener("click", refresh);
@@ -55,11 +56,18 @@ function lettercheck(){
 
 function randomPuzzle(){
 
+	var clueArray = []
+
 	var puzzleArray = ["DOCTOR WHO", "THE DARK KNIGHT RISES", "WHEEL OF FORTUNE",
     "FACEBOOK", "TWITTER", "GOOGLE PLUS", "SEA WORLD", "PASTRAMI ON RYE",
     "I AM SPARTA", "WHOSE LINE IS IT ANYWAY", "GOOGLE CHROME"];
+
+    var random = Math.floor(Math.random()*puzzleArray.length);
+    console.log(random);
 	
-	puzzle = puzzleArray[Math.floor(Math.random()*puzzleArray.length)];
+	puzzle = puzzleArray[random];
+
+	clue = clueArray[random];
 
 	return puzzle;
 }
