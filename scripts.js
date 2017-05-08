@@ -33,6 +33,7 @@ function solvePuzzle(){
 		if (solveInput.value.toUpperCase() === puzzle){
 			document.getElementsByClassName("innerTile")[i].style.display = "block";
 			correctPuzzle = true;
+			win();
 		}
 
 	}
@@ -64,6 +65,11 @@ function lettercheck(){
 	reset();
 }
 
+function win(){
+	score += 500;
+	document.getElementsByClassName("score")[0].innerHTML = score;
+}
+
 function totalScore(){
 	score += 100;
 	document.getElementsByClassName("score")[0].innerHTML = score;
@@ -76,7 +82,7 @@ function wrongAnswer(){
 
 function randomPuzzle(){
 
-	var clueArray = ["Knock Knock", "Batman", "This game", "Mark made it", "The Bird", "Search engine +", "Free Willy", "Jewish deli sandwitch", "300", "Improv show", "The only web browser"];
+	var clueArray = ["Knock Knock", "Batman", "This game", "Mark made it", "The Bird", "Search engine +", "Free Willy", "Jewish deli sandwich", "300", "Improv show", "The only web browser"];
 
 	var puzzleArray = ["DOCTOR WHO", "THE DARK KNIGHT RISES", "WHEEL OF FORTUNE",
     "FACEBOOK", "TWITTER", "GOOGLE PLUS", "SEA WORLD", "PASTRAMI ON RYE",

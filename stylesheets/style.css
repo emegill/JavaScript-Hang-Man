@@ -1,3 +1,14 @@
+html {
+  background-color: #EDCB40;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 60px;
+  font-family: "futrua";
+  max-width: 800px; }
+
+h1 {
+  color: salmon; }
+
 .outterTile {
   height: 60px;
   width: 60px;
@@ -17,16 +28,41 @@
   background-color: salmon;
   color: white;
   font-size: 24px;
-  display: none; }
+  display: none;
+  border-radius: 50%; }
 
 .hint {
   border: 2px solid black;
   height: 100px;
-  width: 100px; }
+  width: 100px;
+  background-color: lightgray;
+  text-align: center;
+  font-family: "futura"; }
 
 .score {
   border: 2px solid black;
   height: 100px;
-  width: 100px; }
+  width: 100px;
+  background-color: lightgray;
+  text-align: center;
+  font-family: "futura"; }
+
+.letter {
+  margin: 10px; }
+
+.letterInput {
+  margin: 10px; }
+
+.solveInput {
+  margin: 10px; }
+
+.solve {
+  margin: 10px; }
+
+.newPuzzle {
+  margin: 10px; }
+
+.off-container {
+  margin: 10px; }
 
 /*# sourceMappingURL=style.css.map */
